@@ -28,7 +28,7 @@ function Header({ setOpen}) {
       </div>
 
       <div className="flex justify-between items-center gap-2">
-        <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c]  text-white cursor-pointer rounded-lg text-2xl md:py-4 py-5 inline-flex md:hidden" onClick={() => setOpenAddBookMarkDialog(true)}>
+        <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c]  text-white cursor-pointer rounded-lg text-3xl flex items-center place-items-center justify-center md:py-4 py-5 md:hidden" onClick={() => setOpenAddBookMarkDialog(true)}>
           +
         </Button>
         <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c] text-white cursor-pointer hidden md:inline-block h-10 rounded-lg text-lg py-1" onClick={() => setOpenAddBookMarkDialog(true)}>

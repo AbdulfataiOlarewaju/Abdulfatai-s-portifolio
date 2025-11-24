@@ -1,5 +1,5 @@
 import { Fragment, useContext } from "react";
-import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
+import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "./ui/sheet";
 import { ArchiveIcon, Bookmark, HomeIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
@@ -94,6 +94,11 @@ function Sidebar({ open, setOpen }) {
                   </Fragment>
                 ))}
               </div>
+               
+            <button className="cursor-pointer ml-7 mt-7" onClick={toggleTheme}>
+              {theme ? <MoonIcon size={17} /> : <SunIcon size={30} />}
+            </button>
+          
             </div>
           </SheetContent>
         </Sheet>
@@ -138,11 +143,13 @@ function Sidebar({ open, setOpen }) {
           
           
         </div>
-            <div className="w-full justify-end flex py-48 px-12">
+            <SheetFooter>
+              <div className="w-full justify-end flex py-48 px-12">
             <button className="cursor-pointer justify-end" onClick={toggleTheme}>
               {theme ? <MoonIcon size={17} /> : <SunIcon size={20} />}
             </button>
           </div>
+            </SheetFooter>
       </aside>
     </Fragment>
   );
