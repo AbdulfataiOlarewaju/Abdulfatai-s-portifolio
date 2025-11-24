@@ -54,9 +54,9 @@ function Sidebar({ open, setOpen }) {
   return (
     <Fragment>
       <div className="lg:hidden ">
-        <Sheet open={open} onOpenChange={setOpen}>
+         <Sheet open={open} onOpenChange={setOpen}>
           <SheetContent side="left" className="w-72 px-2 dark:bg-[#081913]">
-            <div className="flex flex-col h-full ">
+            <div className="flex flex-col min-h-screen">
               <SheetHeader className="border-b">
                 <SheetTitle className="flex items-center justify-baseline gap-2 cursor-pointer mt-2">
                   <Button className="bg-green-950 p-1 rounded-lg hover:bg-green-900 text-white cursor-pointer">
@@ -65,7 +65,8 @@ function Sidebar({ open, setOpen }) {
                   <h2 className="font-extrabold text-lg">Bookmark Manager</h2>
                 </SheetTitle>
               </SheetHeader>
-              {menuItems({ setOpen: setOpen })}
+              <div className="flex-1 overflow-y-auto px-2">
+                 {menuItems({ setOpen: setOpen })}
               <div className="p-4 space-y-4">
                 {Object.keys(tagsOptions).map((tag) => (
                  <Fragment key={tag}>
@@ -93,11 +94,14 @@ function Sidebar({ open, setOpen }) {
                     </div>
                   </Fragment>
                 ))}
-              </div>
-               
-            <button className="cursor-pointer ml-7 mt-7" onClick={toggleTheme}>
+                <button className="cursor-pointer ml-2 mt-4" onClick={toggleTheme}>
               {theme ? <MoonIcon size={17} /> : <SunIcon size={30} />}
             </button>
+              </div>
+              
+              </div>
+               
+            
           
             </div>
           </SheetContent>

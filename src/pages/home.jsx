@@ -16,11 +16,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 import { toast } from "sonner";
 import LogoImageUpload from "@/components/image-upload.";
 import { actionType, sortOptions } from "@/components/config";
-// import { Link } from "react-router-dom";
 
-
-// 
-// import { Textarea } from "./ui/textarea";
 
 
 function Home() {
@@ -45,7 +41,7 @@ function Home() {
   // const normalizedSearch = (searchTerm || "").trim().toLowerCase();
   // const filterItems = normalizedSearch?  book.filter((b) => !b.archived && (b.title || "").toLowerCase().includes(normalizedSearch)) : book.filter((b) => !b.archived);
   //  const filterItems = normalizedSearch? book.filter(b => (b.title || "").toLowerCase().includes(normalizedSearch)) : book;
-  // ...existing code...
+  
 const normalizedSearch = (searchTerm || "").trim().toLowerCase();
 
 const filterItems = book.filter((b) => {
@@ -60,7 +56,7 @@ const filterItems = book.filter((b) => {
   }
   return true;
 });
-// ...existing code...
+
   const [currentEditedId, setCurrentEditedId] = useState(null)
   
 
@@ -70,7 +66,7 @@ const filterItems = book.filter((b) => {
     if (String(d).toLowerCase() === "never") return 0;
     try {
       // assume format like "25 Sep" or "16 Aug" -> append current year
-      const t = new Date(`${d} ${new Date().getFullYear()}`).getTime();
+      const t = new Date(`${d} ${new Date()}`).getTime();
     return Number.isFinite(t) ? t : 0;
     } catch {
       return 0;
@@ -172,7 +168,7 @@ const filterItems = book.filter((b) => {
       ⋮
     </Button>
   </DropdownMenuTrigger>
-  <DropdownMenuContent align="end"  className="w-[150px] bg-white dark:bg-[#0d261c]">
+  <DropdownMenuContent align="end"  className="w-[160px] h-[80px] bg-white dark:bg-[#0d261c]">
     <DropdownMenuItem
       onSelect={() => {
         setOpenAddBookMarkDialog(true);
@@ -186,7 +182,7 @@ const filterItems = book.filter((b) => {
         setDate(p.date ?? "");
         setEventDate(p.eventDate ?? "");
       }}
-      className="px-2 py-1 cursor-pointer hover:bg-muted"
+      className="px-2 cursor-pointer hover:bg-muted"
     >
       Edit
     </DropdownMenuItem>
@@ -198,9 +194,8 @@ const filterItems = book.filter((b) => {
           bookmarkId: p.id,
           updates: { archived: true }
         }));
-        toast.success("Archived");
       }}
-      className="px-2 py-1 cursor-pointer hover:bg-muted"
+      className="px-2 cursor-pointer hover:bg-muted"
     >
       Archive
     </DropdownMenuItem>
@@ -221,7 +216,7 @@ const filterItems = book.filter((b) => {
           ))
           }</div>
       </div>
-      <CardFooter className='border-t mt-2 flex justify-between w-full  text-sm p-0'>
+      <CardFooter className='border-t mt-6 flex justify-between w-full  text-sm p-0'>
         <div className="flex gap-3 font-medium">
           <span className="flex justify-between items-center gap-1 text-muted-foreground"><Eye className="w-4 h-4 "/>{p.view}</span>
         <span className="flex justify-between items-center gap-1 text-muted-foreground"><Timer className="w-4 h-4 "/>{p.date}</span>

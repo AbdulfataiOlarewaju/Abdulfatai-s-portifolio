@@ -38,7 +38,7 @@ function Archieves() {
             ⋮
           </Button>
             </DropdownMenuTrigger>
-             <DropdownMenuContent align="end" className="w-[150px] bg-white dark:bg-[#0d261c]">
+             <DropdownMenuContent align="end" className="w-[160px] bg-white dark:bg-[#0d261c]">
           
             {/* <div className="px-2 py-1 cursor-pointer hover:bg-muted" onClick={()=>{
               handleUnArchieveBookMark(book, true)

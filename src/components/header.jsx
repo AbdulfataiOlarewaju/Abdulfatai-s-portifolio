@@ -10,7 +10,7 @@ function Header({ setOpen}) {
 
   const {openAddBookMarkDialog, setOpenAddBookMarkDialog, searchTerm, setSearchTerm} = useContext(bookContext);
   return (
-          <header className="flex justify-between items-center px-3 md:px-5 py-3 bg-background border-b dark:bg-[#081913] " >
+          <header className="flex justify-between items-center px-1 md:px-5 py-3 bg-background border-b dark:bg-[#081913] " >
       <div className="flex justify-between items-center gap-2">
         <div
           className="bg-background border p-3 rounded-md lg:hidden cursor-pointer dark:bg-[#081913] "
