@@ -9,7 +9,7 @@ import { Toaster } from 'sonner'
 // ...existing code...
 function App() {
   return (
-    <div className='flex flex-col overflow-hidden max-width: 100vw  bg-white dark:bg-[#081913]'>
+    <div className='flex flex-col max-width: 100vw  bg-white dark:bg-[#081913]'>
       <Toaster position="top-left" />
       <Routes>
         <Route path='/' element={<Layout />}>
