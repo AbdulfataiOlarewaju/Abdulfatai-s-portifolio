@@ -19,3 +19,17 @@ export const tagsOptions = {
     { id: 17, label: "Tutorial", number: 3 },
   ],
 };
+
+export const sortOptions = [
+  {id: 'recentlyadded', label : 'Recently added'},
+  {id: 'recentlyvisited', label: 'Recently visited'},
+  {id: 'mostlyvisited', label: 'Most visited'}
+]
+export const actionType = [
+  {
+    id : 'edit', label: 'Edit'
+  },
+  {
+    id: 'archived', label: 'Archieve'
+  }
+]

@@ -1,11 +1,13 @@
-import { Fragment } from "react";
+import { Fragment, useContext } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
-import { ArchiveIcon, Bookmark, HomeIcon } from "lucide-react";
+import { ArchiveIcon, Bookmark, HomeIcon, MoonIcon, SunIcon } from "lucide-react";
 import { Button } from "./ui/button";
 import { useNavigate } from "react-router-dom";
 import { tagsOptions } from "./config";
 import { Label } from "@radix-ui/react-label";
 import { Checkbox } from "./ui/checkbox";
+import useDarkMode from "@/hooks/useDarkMode";
+import { bookContext } from "@/hooks/bookContext";
 // import { Checkbox } from "@radix-ui/react-checkbox";
 
 function Sidebar({ open, setOpen }) {
@@ -24,10 +26,14 @@ function Sidebar({ open, setOpen }) {
     },
   ];
 
+  const [theme, toggleTheme] = useDarkMode();
+  const {selectedTags, toggleTag} = useContext(bookContext)
+
+
   function menuItems({ setOpen }) {
     const navigate = useNavigate();
     return (
-      <nav className="mt-8 flex flex-col gap-2">
+      <nav className="mt-4 flex flex-col gap-2">
         {sidebarMenuItems.map((menuItem) => (
           <div
             key={menuItem.id}
@@ -47,10 +53,10 @@ function Sidebar({ open, setOpen }) {
 
   return (
     <Fragment>
-      <div className="lg:hidden">
+      <div className="lg:hidden ">
         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetContent side="left" className="w-72 px-2">
-            <div className="flex flex-col h-full">
+          <SheetContent side="left" className="w-72 px-2 dark:bg-[#081913]">
+            <div className="flex flex-col h-full ">
               <SheetHeader className="border-b">
                 <SheetTitle className="flex items-center justify-baseline gap-2 cursor-pointer mt-2">
                   <Button className="bg-green-950 p-1 rounded-lg hover:bg-green-900 text-white cursor-pointer">
@@ -62,16 +68,21 @@ function Sidebar({ open, setOpen }) {
               {menuItems({ setOpen: setOpen })}
               <div className="p-4 space-y-4">
                 {Object.keys(tagsOptions).map((tag) => (
-                  <Fragment>
+                 <Fragment key={tag}>
                     <div>
                       <h3 className="text-sm font-medium text-gray-600">
                         {tag}
                       </h3>
                       <div className="grid gap-2 mt-2">
                         {tagsOptions[tag].map((opion) => (
-                          <div className="flex justify-between">
-                            <Label className="flex items-center text-gray-600 gap-2 font-normal">
-                              <Checkbox className='cursor-pointer'/> {opion.label}
+                          <div className="flex justify-between" key={opion.label}>
+                            <Label className="flex items-center text-muted-foreground gap-2 font-normal overflow-hidden">
+                              <Checkbox
+                                className="cursor-pointer"
+                                checked={selectedTags.includes(opion.label)}
+                                onCheckedChange={() => toggleTag(opion.label)}
+                              />
+                              <span className="truncate">{opion.label}</span>
                             </Label>
                             <span className="rounded-full bg-muted/80 px-2 text-sm">
                               {opion.number}
@@ -87,12 +98,12 @@ function Sidebar({ open, setOpen }) {
           </SheetContent>
         </Sheet>
       </div>
-      <aside className="hidden w-64 flex-col border-r bg-background px-2 mt-2 lg:flex">
+      <aside className="hidden w-64 flex-col border-r bg-background px-2 mt-2 lg:flex dark:bg-[#081913] dark:text-white">
         <div
           onClick={() => navigate("/admin/dashboard")}
           className="flex items-center justify-baseline gap-2 cursor-pointer mt-2"
         >
-          <Button className="bg-green-950 p-1 rounded-lg hover:bg-green-900 text-white cursor-pointer">
+          <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c] p-1 rounded-lg text-white cursor-pointer">
             <Bookmark size={25} className="" />
           </Button>
           <h2 className="font-extrabold text-lg">Bookmark Manager</h2>
@@ -100,14 +111,18 @@ function Sidebar({ open, setOpen }) {
         {menuItems({ setOpen: () => {} })}
         <div className="p-4 space-y-4">
           {Object.keys(tagsOptions).map((tag) => (
-            <Fragment>
+            <Fragment key={tag}>
               <div>
                 <h3 className="text-sm font-medium text-gray-600">{tag}</h3>
                 <div className="grid gap-5 mt-2">
                   {tagsOptions[tag].map((opion) => (
                     <div className="flex justify-between">
                       <Label className="flex items-center text-muted-foreground gap-2 font-normal overflow-hidden">
-                        <Checkbox />{" "}
+                       <Checkbox
+                                className="cursor-pointer"
+                                checked={selectedTags.includes(opion.label)}
+                                onCheckedChange={() => toggleTag(opion.label)}
+                              />
                         <span className="truncate">{opion.label}</span>
                       </Label>
 
@@ -120,7 +135,14 @@ function Sidebar({ open, setOpen }) {
               </div>
             </Fragment>
           ))}
+          
+          
         </div>
+            <div className="w-full justify-end flex py-48 px-12">
+            <button className="cursor-pointer justify-end" onClick={toggleTheme}>
+              {theme ? <MoonIcon size={17} /> : <SunIcon size={20} />}
+            </button>
+          </div>
       </aside>
     </Fragment>
   );
