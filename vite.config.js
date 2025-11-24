@@ -6,6 +6,7 @@ import { defineConfig } from "vite"
 // https://vite.dev/config/
 export default defineConfig({
    darkMode : 'class',
+   base: '/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
