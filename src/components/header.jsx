@@ -1,51 +1,94 @@
-import { Bookmark, Hamburger, Menu, Search } from "lucide-react";
+import { useState, useEffect } from "react";
 import { Button } from "./ui/button";
-import { Input } from "./ui/input";
-import profile from "../assets/user5.jpg";
-import { useContext } from "react";
-import { bookContext } from "@/hooks/bookContext";
+import { Menu, MoonIcon, SunIcon } from "lucide-react";
+import useDarkMode from "@/hooks/useDarkMode";
+import { NavLink } from "react-router-dom";
 
+function Header() {
+  const [theme, toggleTheme] = useDarkMode();
+  const [scrolled, setScrolled] = useState(false);
 
-function Header({ setOpen}) {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 0) {
+        setScrolled(true);
+      } else {
+        setScrolled(false);
+      }
+    };
 
-  const {openAddBookMarkDialog, setOpenAddBookMarkDialog, searchTerm, setSearchTerm} = useContext(bookContext);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
   return (
-          <header className="flex justify-between items-center px-1 md:px-5 py-3 bg-background border-b dark:bg-[#081913] " >
-      <div className="flex justify-between items-center gap-2">
-        <div
-          className="bg-background border p-3 rounded-md lg:hidden cursor-pointer dark:bg-[#081913] "
-          onClick={() => setOpen(true)}
-        >
-          <Menu size="20" />
+    <div className="fixed top-0 left-0 w-full z-50">
+      <nav
+        className={`mx-auto flex md:gap-12 justify-between md:py-5 py-4 px-4 md:px-6 z-50 backdrop-blur-md
+       ${
+         scrolled
+           ? "dark:border-b dark:border-neutral-700 border-b dark:bg-black bg-[#efeeee6c] dark:text-white"
+           : " dark:bg-transparent "
+       } border-neutral-300 bg-[#e5e7ebe0]`}
+      >
+        {/* left-side logo */}
+        <h1 className="text-xl font-extrabold text-black dark:text-white">
+          SA
+        </h1>
+        {/* right-side */}
+        <div className="flex gap-8 m:px-5 px-0 font-medium items-center">
+          <ul className="hidden md:flex gap-8 font-medium text-sm items-center">
+            <NavLink to="/">
+              <li className="cursor-pointer transition">Home</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+
+            <NavLink to="/about">
+              <li className="cursor-pointer transition">About</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+             <NavLink to="/services">
+              <li className="cursor-pointer transition">Services</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+
+            <NavLink to="projects">
+              <li className="cursor-pointer transition">Projects</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+
+            <NavLink to="skills">
+              <li className="cursor-pointer transition">Skills</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+
+            {/* <NavLink to="testimonial">
+              <li className="cursor-pointer transition">Testimonials</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink> */}
+
+            <NavLink to="contact">
+              <li className="cursor-pointer transition">Contact</li>
+              <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
+            </NavLink>
+          </ul>
+
+          {/* <Sun className=''/> */}
+          <Button
+            
+            className="cursor-pointer px-0 rounded-sm py-3 flex gap-4 bg-transparent hover:dark:bg-neutral-800 hover:bg-neutral-50 text-black dark:text-white"
+          >
+            <p onClick={toggleTheme}>
+              {theme === "dark" ? (
+                <MoonIcon size={17} />
+              ) : (
+                <SunIcon size={30} />
+              )}
+            </p>
+            <Menu size={18} className="md:hidden" onClick={() => {}} />
+          </Button>
         </div>
-
-        <div className="relative w-[170px] md:w-[300px]">
-          <Input value={searchTerm} className="pl-10 py-5 lg:py-3" placeholder='Search by titile...' onChange={(e)=> setSearchTerm(e.target.value)}/>
-          <div className="absolute inset-y-0 left-0 pl-4 flex items-center pointer-events-none">
-            <Search className="text-muted-foreground" size='18'/>
-          </div>
-        </div>
-      </div>
-
-      <div className="flex justify-between items-center gap-2">
-        <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c]  text-white cursor-pointer rounded-lg text-3xl flex items-center place-items-center justify-center md:py-4 py-5 md:hidden" onClick={() => setOpenAddBookMarkDialog(true)}>
-          +
-        </Button>
-        <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c] text-white cursor-pointer hidden md:inline-block h-10 rounded-lg text-lg py-1" onClick={() => setOpenAddBookMarkDialog(true)}>
-          + AddBookmark
-        </Button>
-
-        <img
-          src={profile}
-          alt=""
-          className="w-10 h-10 rounded-full cursor-pointer"
-        />
-      </div>
-    </header>
-
-    
-    
-    
+      </nav>
+    </div>
   );
 }
 
