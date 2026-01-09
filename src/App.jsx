@@ -12,6 +12,7 @@ import Testimonial from './pages/testimonials';
 import Contact from './pages/contact';
 import NotFound from './pages/not-found-page';
 import Services from './pages/service';
+import Sidebar from './components/sidebar';
 
 // ...existing code...
 function App() {
@@ -19,6 +20,7 @@ function App() {
     <div className='flex flex-col w-screen bg-white dark:bg-[#000000a2]'>
       <Toaster position="top-left" />
       <Header/>
+      <Sidebar/>
       <Routes>
        <Route path='/'  element={<Home />} />
        <Route path='/about' element={<About />} />

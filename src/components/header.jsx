@@ -1,13 +1,19 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import { Button } from "./ui/button";
 import { Menu, MoonIcon, SunIcon } from "lucide-react";
 import useDarkMode from "@/hooks/useDarkMode";
 import { NavLink } from "react-router-dom";
+import { GlobalContext } from "@/hooks/global";
 
 function Header() {
   const [theme, toggleTheme] = useDarkMode();
   const [scrolled, setScrolled] = useState(false);
+  const {openSidebar, setOpenSidebar} = useContext(GlobalContext)
 
+
+ 
+
+  
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 0) {
@@ -20,6 +26,8 @@ function Header() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  
   return (
     <div className="fixed top-0 left-0 w-full z-50">
       <nav
@@ -71,11 +79,11 @@ function Header() {
               <hr className="border-none outline-non bg-black dark:bg-white w-full m-auto h-0.5 hidden transition-all duration-500 ease-in-out" />
             </NavLink>
           </ul>
-
-          {/* <Sun className=''/> */}
-          <Button
+              {/*  */}
+          <div className="flex justify-between items-center gap-1">
+            <Button
             
-            className="cursor-pointer px-0 rounded-sm py-3 flex gap-4 bg-transparent hover:dark:bg-neutral-800 hover:bg-neutral-50 text-black dark:text-white"
+            className="cursor-pointer px-0 rounded-sm py-3 md:flex hidden gap-4 bg-transparent hover:dark:bg-neutral-800 hover:bg-neutral-50 text-black dark:text-white"
           >
             <p onClick={toggleTheme}>
               {theme === "dark" ? (
@@ -84,10 +92,22 @@ function Header() {
                 <SunIcon size={30} />
               )}
             </p>
-            <Menu size={18} className="md:hidden" onClick={() => {}} />
+            
           </Button>
+          <Button
+            onClick={()=>setOpenSidebar(!openSidebar)} 
+            className="cursor-pointer px-0 rounded-sm py-3 flex gap-4 bg-transparent hover:dark:bg-neutral-800 hover:bg-neutral-50 text-black dark:text-white"
+          >
+            
+            <Menu size={18} className="md:hidden" />
+          </Button>
+          
+           
+          </div>
+         
         </div>
       </nav>
+     
     </div>
   );
 }

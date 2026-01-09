@@ -1,160 +1,90 @@
-import { Fragment, useContext } from "react";
-import { Sheet, SheetContent, SheetFooter, SheetHeader, SheetTitle } from "./ui/sheet";
-import { ArchiveIcon, Bookmark, HomeIcon, MoonIcon, SunIcon } from "lucide-react";
+import { Fragment, useContext, useState } from "react";
+import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
+import { NavLink } from "react-router-dom";
+import { GlobalContext } from "@/hooks/global";
 import { Button } from "./ui/button";
-import { useNavigate } from "react-router-dom";
-import { tagsOptions } from "./config";
-import { Label } from "@radix-ui/react-label";
-import { Checkbox } from "./ui/checkbox";
+import { MoonIcon, SunIcon } from "lucide-react";
 import useDarkMode from "@/hooks/useDarkMode";
-import { bookContext } from "@/hooks/bookContext";
-// import { Checkbox } from "@radix-ui/react-checkbox";
 
-function Sidebar({ open, setOpen }) {
-  const sidebarMenuItems = [
-    {
-      id: "home",
-      label: "Home",
-      path: "/home",
-      icon: <HomeIcon />,
-    },
-    {
-      id: "archives",
-      label: "Archieved",
-      path: "/archived",
-      icon: <ArchiveIcon size="18" />,
-    },
-  ];
+function MenuItem() {
+  const { openSidebar, setOpenSidebar } = useContext(GlobalContext);
 
-  const [theme, toggleTheme] = useDarkMode();
-  const {selectedTags, toggleTag} = useContext(bookContext)
-
-
-  function menuItems({ setOpen }) {
-    const navigate = useNavigate();
-    return (
-      <nav className="mt-4 flex flex-col gap-2">
-        {sidebarMenuItems.map((menuItem) => (
-          <div
-            key={menuItem.id}
-            onClick={() => {
-              navigate(menuItem.path);
-              setOpen(false);
-            }}
-            className="flex items-center gap-2 rounded-md px-3 py-2 cursor-pointer text-muted-foreground hover:bg-muted hover:text-foreground text-md font-medium"
-          >
-            {menuItem.icon}
-            <span>{menuItem.label}</span>
-          </div>
-        ))}
-      </nav>
-    );
+  function toggleMenu() {
+    setOpenSidebar(!openSidebar);
   }
+  console.log(openSidebar);
+  return (
+    <ul className="md:hidden flex flex-col gap-8 font-medium text--md px-4 mt-10">
+      <NavLink to="/" onClick={() => setOpenSidebar(!openSidebar)}>
+        <li className="cursor-pointer transition">Home</li>
+      </NavLink>
+
+      <NavLink to="/about" onClick={() => setOpenSidebar(!openSidebar)}>
+        <li className="cursor-pointer transition">About</li>
+      </NavLink>
+      <NavLink to="/services">
+        <li className="cursor-pointer transition">Services</li>
+      </NavLink>
+
+      <NavLink to="projects" onClick={() => setOpenSidebar(!openSidebar)}>
+        <li className="cursor-pointer transition">Projects</li>
+      </NavLink>
+
+      <NavLink to="skills" onClick={() => setOpenSidebar(!openSidebar)}>
+        <li className="cursor-pointer transition">Skills</li>
+      </NavLink>
+
+      {/* <NavLink to="testimonial">
+            <li className="cursor-pointer transition">Testimonials</li>
+            
+          </NavLink> */}
+
+      <NavLink to="contact" onClick={() => setOpenSidebar(!openSidebar)}>
+        <li className="cursor-pointer transition">Contact</li>
+      </NavLink>
+    </ul>
+  );
+}
+
+function Sidebar() {
+  const { openSidebar, setOpenSidebar } = useContext(GlobalContext);
+  const [theme, toggleTheme] = useDarkMode();
 
   return (
     <Fragment>
-      <div className="lg:hidden ">
-         <Sheet open={open} onOpenChange={setOpen}>
-          <SheetContent side="left" className="w-72 px-2 dark:bg-[#081913] h-[100dvh]">
+      <div className="lg:hidden">
+        <Sheet
+          open={openSidebar}
+          onOpenChange={setOpenSidebar}
+          className="bg-[#e5e7eb]"
+        >
+          <SheetContent
+            side="left"
+            className="w-72 px-2 z-50  h-[100dvh] dark:border-b dark:border-neutral-700 border-b dark:bg-black bg-[#e5e7eb] dark:text-white"
+          >
             <div className="flex flex-col h-full">
-              <SheetHeader className="border-b">
-                <SheetTitle className="flex items-center justify-baseline gap-2 cursor-pointer mt-2">
-                  <Button className="bg-green-950 p-1 rounded-lg hover:bg-green-900 text-white cursor-pointer">
-                    <Bookmark size={25} className="" />
-                  </Button>
-                  <h2 className="font-extrabold text-lg">Bookmark Manager</h2>
-                </SheetTitle>
-              </SheetHeader>
-              <div className="flex-1 overflow-y-auto px-2" style={{ WebkitOverflowScrolling: 'touch'}}>
-                 {menuItems({ setOpen })}
-              <div className="p-4 space-y-4">
-                {Object.keys(tagsOptions).map((tag) => (
-                 <Fragment key={tag}>
-                    <div>
-                      <h3 className="text-sm font-medium text-gray-600">
-                        {tag}
-                      </h3>
-                      <div className="grid gap-2 mt-2">
-                        {tagsOptions[tag].map((opion) => (
-                          <div className="flex justify-between" key={opion.label}>
-                            <Label className="flex items-center text-muted-foreground gap-2 font-normal overflow-hidden">
-                              <Checkbox
-                                className="cursor-pointer"
-                                checked={selectedTags.includes(opion.label)}
-                                onCheckedChange={() => toggleTag(opion.label)}
-                              />
-                              <span className="truncate">{opion.label}</span>
-                            </Label>
-                            <span className="rounded-full bg-muted/80 px-2 text-sm">
-                              {opion.number}
-                            </span>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-                  </Fragment>
-                ))}
-                <button className="cursor-pointer ml-2 mt-4" onClick={toggleTheme}>
-              {theme ? <MoonIcon size={17} /> : <SunIcon size={30} />}
-            </button>
+              <div
+                className="flex-1 overflow-y-auto px-2"
+                style={{ WebkitOverflowScrolling: "touch" }}
+              >
+                <SheetHeader className="border-b-2 mt-20">
+                  <SheetTitle className="flex items-center justify-baseline gap-2 cursor-pointer mt-2 font-extrabold text-2xl">
+                    SA
+                  </SheetTitle>
+                </SheetHeader>
+                {<MenuItem />}
               </div>
-              
+              <div className="border-t pt-4 pb-2">
+                <Button className="w-full cursor-pointer px-2 rounded-sm py-3 flex gap-4 bg-transparent hover:dark:bg-neutral-800 hover:bg-neutral-50 text-black dark:text-white">
+                  <p onClick={toggleTheme}>
+                    {theme === "dark" ? <MoonIcon size={17} /> : <SunIcon size={30} />}
+                  </p>
+                </Button>
               </div>
-               
-            
-          
             </div>
           </SheetContent>
         </Sheet>
       </div>
-      <aside className="hidden w-64 flex-col border-r bg-background px-2 mt-2 lg:flex dark:bg-[#081913] dark:text-white">
-        <div
-          onClick={() => navigate("/admin/dashboard")}
-          className="flex items-center justify-baseline gap-2 cursor-pointer mt-2"
-        >
-          <Button className="bg-[#0d261c] hover:bg-[#0d261c] dark:bg-[#0d261c] p-1 rounded-lg text-white cursor-pointer">
-            <Bookmark size={25} className="" />
-          </Button>
-          <h2 className="font-extrabold text-lg">Bookmark Manager</h2>
-        </div>
-        {menuItems({ setOpen: () => {} })}
-        <div className="p-4 space-y-4">
-          {Object.keys(tagsOptions).map((tag) => (
-            <Fragment key={tag}>
-              <div>
-                <h3 className="text-sm font-medium text-gray-600">{tag}</h3>
-                <div className="grid gap-5 mt-2">
-                  {tagsOptions[tag].map((opion) => (
-                    <div className="flex justify-between">
-                      <Label className="flex items-center text-muted-foreground gap-2 font-normal overflow-hidden">
-                       <Checkbox
-                                className="cursor-pointer"
-                                checked={selectedTags.includes(opion.label)}
-                                onCheckedChange={() => toggleTag(opion.label)}
-                              />
-                        <span className="truncate">{opion.label}</span>
-                      </Label>
-
-                      <span className="rounded-full bg-muted/80 px-2 text-sm">
-                        {opion.number}
-                      </span>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            </Fragment>
-          ))}
-          
-          
-        </div>
-            <SheetFooter>
-      <div className="mt-auto w-full flex justify-end p-4">
-        <button className="cursor-pointer" onClick={toggleTheme}>
-          {theme ? <MoonIcon size={17} /> : <SunIcon size={30} />} 
-        </button>
-      </div>
-    </SheetFooter>
-      </aside>
     </Fragment>
   );
 }
