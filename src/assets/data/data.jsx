@@ -16,10 +16,10 @@ const ProjectData = [
     },
     {
         title: "Chi Chi Exquiste Kitchen",
-        description: "A dynamic e-commerce storefront built with React and Tailwind CSS. Features responsive design, advanced client-side state management (cart/checkout). Excellent for demonstrating component architecture, custom hooks, and utility-first styling.", 
+        description: "A dynamic e-commerce storefront built with React and Tailwind CSS. Features responsive design, advanced client-side state management (cart/checkout).", 
         categories: 'Web Development',
         Image: image1,
-        technologies: ["React", "Tailwindcss", "Frammer motion"],
+        technologies: ["React", "Tailwindcss", "Frammer motion", "javascript"],
         viewLink: "https://chi-chi-exquiste-kitchen.vercel.app",
         codeLink: "https://github.com/AbdulfataiOlarewaju/Chi-Chi-Exquiste-Kitchen"
     },
