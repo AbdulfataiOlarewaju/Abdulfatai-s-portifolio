@@ -1,18 +1,19 @@
 import image1 from './image2.jpg';
 import image2 from './bookMark-medium.webp'
 import image3 from './image.png';
+import image4 from './Screenshot 2026-02-17 075941.png';
 import { Code, Globe, Palette, Phone, Rocket, Search, ShoppingCart, Smartphone, WholeWord } from 'lucide-react';
 
 
 const ProjectData = [
     {
-        title: "TradePro",
-        description: "A comprehensive trading platform that offers real-time market data, advanced charting tools, and seamless order execution for traders of all levels.",
+        title: "A therapist website",
+        description: "A fully responsive and accessible therapist website built with modern web technologies. Features appointment booking, service listings, and a clean, professional design",
         categories: 'Web Development',
-        Image: image1,
-        technologies: ["React", "Node.js", "Socket.io", "D3.js"],
-        viewLink: "https://tradepro.example.com",
-        codeLink: "https://github.com/username/tradepro"
+        Image: image4,
+        technologies: ["React", "TypeScript", "API integration", "D3.js"],
+        viewLink: "https://www.confidantszone.com/",
+        codeLink: "https://github.com/AbdulfataiOlarewaju/ConfidantsZone"
     },
     {
         title: "Chi Chi Exquiste Kitchen",
