@@ -1,12 +1,32 @@
-import image1 from './image2.jpg';
+import image1 from './Chi-Chi-Exquiste.png';
 import image2 from './bookMark-medium.webp'
 import image3 from './image.png';
 import image4 from './Screenshot 2026-02-17 075941.png';
+import image5 from './Screenshot 2026-02-23 145105.png';
 import { Code, Globe, Palette, Phone, Rocket, Search, ShoppingCart, Smartphone, WholeWord } from 'lucide-react';
 
 
 const ProjectData = [
     {
+        title: "Elegant-Store",
+        description: "A MERN stack e-commerce platform with admin panel for product/order management. Features search, filtering, cart functionality, and PayPal payment integration.",
+        categories: 'Web App',
+        Image: image5,
+        technologies: ["Reactjs","Node.js", "MongoDB", "Tailwindcss", "Lucide React", "PayPal API"],
+        viewLink: "https://elegant-store-2.onrender.com/",
+        codeLink: "https://github.com/AbdulfataiOlarewaju/Elegant-Store"
+    },
+   
+    {
+        title: "Chi Chi Exquiste Kitchen",
+        description: "A dynamic e-commerce storefront built with React and Tailwind CSS. Features responsive design, advanced client-side state management (cart/checkout).", 
+        categories: 'Web App',
+        Image: image1,
+        technologies: ["React", "Tailwindcss", "Frammer motion", "javascript"],
+        viewLink: "https://chi-chi-exquiste-kitchen.vercel.app",
+        codeLink: "https://github.com/AbdulfataiOlarewaju/Chi-Chi-Exquiste-Kitchen"
+    },
+     {
         title: "A therapist website",
         description: "A fully responsive and accessible therapist website built with modern web technologies. Features appointment booking, service listings, and a clean, professional design",
         categories: 'Web Development',
@@ -16,13 +36,13 @@ const ProjectData = [
         codeLink: "https://github.com/AbdulfataiOlarewaju/ConfidantsZone"
     },
     {
-        title: "Chi Chi Exquiste Kitchen",
-        description: "A dynamic e-commerce storefront built with React and Tailwind CSS. Features responsive design, advanced client-side state management (cart/checkout).", 
-        categories: 'Web Development',
-        Image: image1,
-        technologies: ["React", "Tailwindcss", "Frammer motion", "javascript"],
-        viewLink: "https://chi-chi-exquiste-kitchen.vercel.app",
-        codeLink: "https://github.com/AbdulfataiOlarewaju/Chi-Chi-Exquiste-Kitchen"
+        title: "Frontend-Mentor-Book-Manager-App",
+        description: "A fully-functional bookmark manager with add, edit, archive, search, and filter features. Perfect for practicing forms and state management.",
+        categories: 'Web App',
+        Image: image2,
+        technologies: ["Reactjs","Node.js", "MongoDB", "Tailwindcss", "Google API"],
+        viewLink: "https://frontend-mentor-book-manager-app.vercel.app",
+        codeLink: "https://github.com/AbdulfataiOlarewaju/Frontend-Mentor-Book-Manager-App"
     },
     {
         title: "FARMEASY",   
@@ -33,15 +53,8 @@ const ProjectData = [
         viewLink: "https://ecoshop.example.comhttps://abdulfataiolarewaju.github.io/FARMEASY/about.html",
         codeLink: "https://github.com/AbdulfataiOlarewaju/FARMEASY"
     },
-    {
-        title: "Frontend-Mentor-Book-Manager-App",
-        description: "A fully-functional bookmark manager with add, edit, archive, search, and filter features. Perfect for practicing forms and state management.",
-        categories: 'Web App',
-        Image: image2,
-        technologies: ["Reactjs","Node.js", "MongoDB", "Tailwindcss", "Google API"],
-        viewLink: "https://frontend-mentor-book-manager-app.vercel.app",
-        codeLink: "https://github.com/AbdulfataiOlarewaju/Frontend-Mentor-Book-Manager-App"
-    }
+    
+    
 ]
 
 export default ProjectData;
