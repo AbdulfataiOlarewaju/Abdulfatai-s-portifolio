@@ -168,7 +168,7 @@ function Footer() {
         </motion.div>
 
         {/* Contact Section */}
-        <motion.div variants={itemVariants} className="w-full md:w-1/4">
+        <motion.div variants={itemVariants} className="w-full md:w-1/4 mt-5 md:mt-0">
           <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Contact</h3>
           <motion.p 
             whileHover={{ x: 3 }}
