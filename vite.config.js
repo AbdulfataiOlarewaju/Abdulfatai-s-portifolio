@@ -8,6 +8,8 @@ export default defineConfig({
    darkMode : 'class',
    base: '/',
   plugins: [react(), tailwindcss()],
+  // allow importing .docx files as assets (returns a URL)
+  assetsInclude: ["**/*.docx"],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),

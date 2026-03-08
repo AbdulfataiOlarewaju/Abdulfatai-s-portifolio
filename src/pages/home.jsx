@@ -1,5 +1,5 @@
 import { Download, Eye } from "lucide-react";
-import resumePdf from "@/assets/data/SAKARIYAU ABDULFATAI-RESUME.pdf";
+import resumePdf from "@/assets/data/SAKARIYAU ABDULFATAI-RESUME.docx";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
