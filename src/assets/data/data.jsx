@@ -1,8 +1,10 @@
 import image1 from './Chi-Chi-Exquiste.png';
 import image2 from './bookMark-medium.webp'
 import image3 from './image.png';
-import image4 from './Screenshot 2026-02-17 075941.png';
-import image5 from './Screenshot 2026-02-23 145105.png';
+import image4 from './herapist website.png';
+import image5 from './Elegant-Store.png';
+import image6 from './Screenshot 2026-03-08 111153.png';
+
 import { Code, Globe, Palette, Phone, Rocket, Search, ShoppingCart, Smartphone, WholeWord } from 'lucide-react';
 
 
@@ -16,7 +18,15 @@ const ProjectData = [
         viewLink: "https://elegant-store-2.onrender.com/",
         codeLink: "https://github.com/AbdulfataiOlarewaju/Elegant-Store"
     },
-   
+     {
+        title: "Thrive Africa",
+        description: "A nonprofit organization website built to reach individuals in need of healthcare support. Features donation systems, volunteer sign-ups, and mission-driven content optimized for",
+        categories: 'Web App',
+        Image: image6,
+        technologies: ["React", "TypeScript", "MongoDb", "D3.js"],
+        viewLink: "https://thrive-africa-health-initiative.vercel.app/",
+        codeLink: "https://github.com/AbdulfataiOlarewaju/TriveAfica"
+    },
     {
         title: "Chi Chi Exquiste Kitchen",
         description: "A dynamic e-commerce storefront built with React and Tailwind CSS. Features responsive design, advanced client-side state management (cart/checkout).", 
@@ -29,12 +39,13 @@ const ProjectData = [
      {
         title: "A therapist website",
         description: "A fully responsive and accessible therapist website built with modern web technologies. Features appointment booking, service listings, and a clean, professional design",
-        categories: 'Web Development',
+        categories: 'Web App',
         Image: image4,
         technologies: ["React", "TypeScript", "API integration", "D3.js"],
         viewLink: "https://www.confidantszone.com/",
         codeLink: "https://github.com/AbdulfataiOlarewaju/ConfidantsZone"
     },
+   
     {
         title: "Frontend-Mentor-Book-Manager-App",
         description: "A fully-functional bookmark manager with add, edit, archive, search, and filter features. Perfect for practicing forms and state management.",
@@ -53,8 +64,6 @@ const ProjectData = [
         viewLink: "https://ecoshop.example.comhttps://abdulfataiolarewaju.github.io/FARMEASY/about.html",
         codeLink: "https://github.com/AbdulfataiOlarewaju/FARMEASY"
     },
-    
-    
 ]
 
 export default ProjectData;

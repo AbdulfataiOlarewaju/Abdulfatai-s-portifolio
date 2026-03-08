@@ -152,7 +152,7 @@ function Skills() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="lg:text-4xl font-bold mb-4  text-xl text-center"
+          className="md:text-[33px] text-[24px] font-bold mb-4  text-center"
         >
           Skills & Expertise
         </motion.h2>
@@ -192,7 +192,7 @@ function Skills() {
               className="
                      dark:border-neutral-700
                      border-neutral-300 bg-[#e5e7ebe0] dark:bg-[#131212]
-                 rounded-md px-4 shadow-sm border py-8 cursor-pointer"
+                 rounded-md px-4 shadow-sm border py-8 "
             >
               <div className="text-3xl text-center">{category.emoji}</div>
               <p className="text-xl font-semibold text-center mb-4">{category.title}</p>
@@ -216,7 +216,7 @@ function Skills() {
         >
           <Card
             className="border border-neutral-300  bg-gray-200
-                     dark:bg-[#131212] shadow-none  [#1a1a1a] dark:border-neutral-700 rounded-lg  overflow-hidden cursor-pointer px-3 py-4"
+                     dark:bg-[#131212] shadow-none  [#1a1a1a] dark:border-neutral-700 rounded-lg  overflow-hidden  px-3 py-4"
           >
             <CardContent className="text-center flex flex-col items-center">
               <h2 className="font-semibold text-xl mb-2">Always Learning</h2>

@@ -51,7 +51,7 @@ function Header() {
       className="fixed top-0 left-0 w-full z-50"
     >
       <nav
-        className={`mx-auto flex md:gap-12 justify-between md:py-5 py-4 px-4 md:px-6 z-50 backdrop-blur-md
+        className={`mx-auto flex md:gap-12 justify-between md:py-5 py-4 px-4 md:px-10 z-50 backdrop-blur-md
        ${
          scrolled
            ? "dark:border-b dark:border-neutral-700 border-b dark:bg-black bg-[#efeeee6c] dark:text-white"
@@ -80,7 +80,7 @@ function Header() {
                     <motion.li 
                       whileHover={{ y: -2 }}
                       className={`cursor-pointer transition relative ${
-                        isActive ? "text-black dark:text-white font-semibold" : ""
+                        isActive ? "text-black dark:text-white font-semibold" : "font-normal"
                       }`}
                     >
                       {item.label}

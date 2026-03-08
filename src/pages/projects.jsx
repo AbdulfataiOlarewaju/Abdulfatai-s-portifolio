@@ -63,7 +63,7 @@ function Projects() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-4xl font-bold mb-4 text-center"
+          className="md:text-[33px] text-[24px] font-bold mb-4 text-center"
         >
           Featured Projects
         </motion.h2>
@@ -103,7 +103,7 @@ function Projects() {
               <Card 
                 className="border-neutral-300 border bg-gray-200
            dark:bg-[#131212] shadow-none  [#1a1a1a] dark:border-neutral-700
-                 relative rounded-lg  transition-all duration-300 overflow-hidden p-0 md:h-full"
+                 relative rounded-lg  transition-all duration-300 flex flex-col gap-3 overflow-hidden p-0 md:h-full"
               >
                 <motion.div
                   whileHover={{ scale: 1.08 }}
@@ -112,7 +112,7 @@ function Projects() {
                   <img
                     src={project.Image}
                     alt=""
-                    className="w-full h-[250px] md:h-[290px] object-cover rounded-t-lg"
+                    className="w-full h-[230px] md:h-[290px] object-cover rounded-t-lg hover:opacity-85"
                   />
                 </motion.div>
 
@@ -122,11 +122,11 @@ function Projects() {
                   </span>
                 </div>
 
-                <div className="px-4 md:py-6 py-3 w-20% ">
+                <div className="px-4 md:py-6 pb-3 pt-0 w-20%">
                   <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
                   <p
                     className="mb-4 
-                       dark:text-neutral-500 text-shadow-neutral-700 text-sm"
+                       dark:text-neutral-500 text-shadow-neutral-700 text-sm "
                   >
                     {project?.description.length > 20 ? project?.description.toString(0, 10) + '...' : project?.description} 
                   </p>
@@ -159,7 +159,7 @@ function Projects() {
                       whileHover={{ scale: 1.02 }}
                       whileTap={{ scale: 0.98 }}
                       className="dark:bg-gray-200 dark:text-black bg-black text-white w-full
-                       py-2 px-4 rounded-md font-medium text-sm cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out"
+                       py-2 px-4 rounded-md font-medium text-[11px] md:text-sm cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out"
                     >
                       <Eye size={16} /> Live Demo
                     </motion.a>
@@ -171,7 +171,7 @@ function Projects() {
                       whileTap={{ scale: 0.98 }}
                       className="dark:bg-black dark:text-white dark:hover:opacity-70 dark:border-neutral-700
                      bg-[#eeeeee] border text-black hover:bg-gray-200 hover:border hover:border-gray-50 border-gray-300  w-full
-                       py-2 px-4 rounded-md font-medium text-sm cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out"
+                       py-2 px-4 rounded-md font-medium text-[12px] md:text-sm cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out"
                     >
                       <Github size={16} /> Code
                     </motion.a>

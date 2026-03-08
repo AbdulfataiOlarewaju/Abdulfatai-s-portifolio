@@ -100,7 +100,7 @@ function About() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="text-3xl lg:text-4xl  font-bold mb-4 text-center"
+          className="md:text-[33px] text-[24px] px-1  font-bold mb-4 text-center"
         >
           About Sakariyau Abdulfatai
         </motion.h2>
@@ -186,7 +186,7 @@ function About() {
                   animate={isInView ? "visible" : "hidden"}
                   whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
                   className="border-neutral-300 bg-gray-200
-           dark:bg-[#000000a2]  [#1a1a1a] dark:border-neutral-700 rounded-md px-4  border py-8 cursor-pointer"
+           dark:bg-[#000000a2]  [#1a1a1a] dark:border-neutral-700 rounded-md px-4  border py-8 "
                 >
                   {card.icon}
                   <p className="text-md font-semibold mb-3">

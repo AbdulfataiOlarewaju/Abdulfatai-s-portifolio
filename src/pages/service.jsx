@@ -5,6 +5,7 @@ import React, { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView } from "framer-motion";
+import { ArrowRight } from "lucide-react";
 
 function Services() {
   const [services] = useState(serviceData);
@@ -63,7 +64,7 @@ function Services() {
           variants={itemVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="lg:text-4xl font-bold mb-4  text-xl text-center"
+          className=" font-bold mb-4  md:text-[33px] text-[24px] text-center"
         >
           Web Design & Development Services
         </motion.h2>
@@ -111,7 +112,7 @@ function Services() {
                 >
                   <Card
                     className="border border-neutral-300  bg-gray-200
-           dark:bg-[#131212] shadow-none  [#1a1a1a] dark:border-neutral-700 rounded-lg overflow-hidden cursor-pointer"
+           dark:bg-[#131212] shadow-none  [#1a1a1a] dark:border-neutral-700 rounded-lg overflow-hidden "
                   >
                     <CardContent className="p-6">
                       <div className="flex items-start">
@@ -152,15 +153,26 @@ function Services() {
 
              
             </CardContent>
-            <CardFooter className='flex items-center justify-center'>
+            <CardFooter className='flex items-center gap-3 justify-center'>
                <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={()=> navigate('/contact')}
                 className='dark:bg-white dark:text-black bg-black text-white
-                py-[16px] px-7 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
+                py-[14px] px-7 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
               >
-                 Get Free Consultation
+                 Start Your Project
+                 <ArrowRight/>
+              </motion.button>
+              <motion.button
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.98 }}
+                onClick={()=> navigate('/projects')}
+                className='dark:bg-black dark:text-white dark:hover:opacity-70 dark:hover:border
+                     bg-[#eeeeee] border border-gray-50 text-black hover:bg-gray-200 hover:border hover:border-gray-50
+                py-[14px] px-10 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
+              >
+                 View My Work
               </motion.button>
             </CardFooter>
         </Card>

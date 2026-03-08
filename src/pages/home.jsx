@@ -1,4 +1,5 @@
 import { Download, Eye } from "lucide-react";
+import resumePdf from "@/assets/data/SAKARIYAU ABDULFATAI-RESUME.pdf";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -134,19 +135,19 @@ function Home() {
                 <Eye size={15} /> Viewe Projects
               </motion.button>
               
-              <motion.button
+              <motion.a
                 variants={buttonVariants}
                 custom={1}
                 initial="hidden"
                 animate="visible"
                 whileHover="hover"
                 whileTap={{ scale: 0.98 }}
-                className='dark:bg-black dark:text-white dark:hover:opacity-70 dark:hover:border
-                     bg-[#eeeeee] border text-black hover:bg-gray-200 hover:border hover:border-gray-50 
-                 py-[11px] px-7  rounded-md font-medium text-md cursor-pointer flex justify-center items-center gap-2 transition-all duration-500 ease-in-out text-sm'
+                href={resumePdf}
+                download
+                className='dark:bg-black dark:text-white dark:hover:opacity-70 dark:hover:border bg-[#eeeeee] border text-black hover:bg-gray-200 hover:border hover:border-gray-50 py-[11px] px-7 rounded-md font-medium text-md cursor-pointer flex justify-center items-center gap-2 transition-all duration-500 ease-in-out text-sm'
               >
                 <Download size={15} /> Download Resume
-              </motion.button>
+              </motion.a>
             </div>
            </motion.div>
           </motion.div>

@@ -98,7 +98,7 @@ function Footer() {
             className="flex gap-3 mt-2 text-xl dark:text-gray-300"
           >
             <motion.a 
-              href="https://github.com/AbdulfataiOlarewaju/" 
+              href="https://github.com/AbdulfataiOlarewaju" 
               custom={0}
               variants={socialVariants}
               whileHover={{ scale: 1.2, y: -2 }}
@@ -169,7 +169,7 @@ function Footer() {
 
         {/* Contact Section */}
         <motion.div variants={itemVariants} className="w-full md:w-1/4 mt-5 md:mt-0">
-          <h3 className="text-lg font-semibold text-gray-800 dark:text-white mb-2">Contact</h3>
+          <h3 className="text-[15px] font-semibold text-gray-800 dark:text-white mb-2">Contact</h3>
           <motion.p 
             whileHover={{ x: 3 }}
             className="dark:text-white text-neutral-black mb-4 flex gap-2 font-bold text-sm cursor-pointer"

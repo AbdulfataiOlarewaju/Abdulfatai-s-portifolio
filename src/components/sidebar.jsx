@@ -1,5 +1,5 @@
 
-import { Fragment, useContext, useState } from "react";
+import { Fragment, useContext, useState, useEffect } from "react";
 import { Sheet, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 import { NavLink } from "react-router-dom";
 import { GlobalContext } from "@/hooks/global";
@@ -54,12 +54,16 @@ function MenuItem() {
               to={item.to} 
               onClick={() => setOpenSidebar(!openSidebar)}
             >
-              <motion.span 
+              {({ isActive }) => (
+                 <motion.span 
                 whileHover={{ x: 10 }}
-                className="cursor-pointer transition"
+                // className="cursor-pointer transition"
+                className={`${isActive ? "text-black dark:text-white font-semibold transition" : "font-normal transition"}`}
               >
                 {item.label}
               </motion.span>
+              )}
+             
             </NavLink>
           </motion.li>
         ))}
@@ -71,6 +75,21 @@ function MenuItem() {
 function Sidebar() {
   const { openSidebar, setOpenSidebar } = useContext(GlobalContext);
   const [theme, toggleTheme] = useDarkMode();
+
+  useEffect(() => {
+    function handleResize() {
+      // Tailwind `md` breakpoint is 768px — close mobile sheet on larger screens
+      if (window.innerWidth >= 768) {
+        setOpenSidebar(false);
+      }
+    }
+
+    // run once to sync state on mount
+    handleResize();
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, [setOpenSidebar]);
 
   const sidebarVariants = {
     hidden: { x: "-100%", opacity: 0 },
