@@ -153,13 +153,13 @@ function Services() {
 
              
             </CardContent>
-            <CardFooter className='flex items-center gap-3 justify-center'>
+            <CardFooter className='flex md:flex-row flex-col   items-center gap-3 justify-center'>
                <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={()=> navigate('/contact')}
-                className='dark:bg-white dark:text-black bg-black text-white
-                py-[14px] px-7 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
+                className='dark:bg-white dark:text-black bg-black text-white py-[10px]
+                md:py-[14px] px-7 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
               >
                  Start Your Project
                  <ArrowRight/>
@@ -169,8 +169,8 @@ function Services() {
                 whileTap={{ scale: 0.98 }}
                 onClick={()=> navigate('/projects')}
                 className='dark:bg-black dark:text-white dark:hover:opacity-70 dark:hover:border
-                     bg-[#eeeeee] border border-gray-50 text-black hover:bg-gray-200 hover:border hover:border-gray-50
-                py-[14px] px-10 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
+                     bg-[#eeeeee] border border-gray-50 text-black hover:bg-gray-200 hover:border hover:border-gray-50 py-[10px]
+                md:py-[14px] px-10 rounded-md font-medium text-lg cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out text-sm'
               >
                  View My Work
               </motion.button>
