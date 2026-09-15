@@ -89,7 +89,7 @@ function Projects() {
           variants={containerVariants}
           initial="hidden"
           animate={isInView ? "visible" : "hidden"}
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 py-auto"
+          className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
         >
           {projects.map((project, index) => (
             <motion.div
@@ -165,13 +165,12 @@ function Projects() {
                     </motion.a>
                     <motion.a
                       href={project.codeLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      whileHover={{ scale: 1.02 }}
-                      whileTap={{ scale: 0.98 }}
+                      aria-disabled="true"
+                      tabIndex={-1}
+                      onClick={(event) => event.preventDefault()}
                       className="dark:bg-black dark:text-white dark:hover:opacity-70 dark:border-neutral-700
-                     bg-[#eeeeee] border text-black hover:bg-gray-200 hover:border hover:border-gray-50 border-gray-300  w-full
-                       py-2 px-4 rounded-md font-medium text-[12px] md:text-sm cursor-pointer flex justify-center items-center gap-2 hover:opacity-85 transition-all duration-500 ease-in-out"
+                     bg-[#eeeeee] border text-black border-gray-300 opacity-50 cursor-not-allowed pointer-events-none w-full
+                       py-2 px-4 rounded-md font-medium text-[12px] md:text-sm flex justify-center items-center gap-2 transition-all duration-500 ease-in-out"
                     >
                       <Github size={16} /> Code
                     </motion.a>

@@ -45,25 +45,6 @@ const ProjectData = [
         viewLink: "https://www.confidantszone.com/",
         codeLink: "https://github.com/AbdulfataiOlarewaju/ConfidantsZone"
     },
-   
-    {
-        title: "Frontend-Mentor-Book-Manager-App",
-        description: "A fully-functional bookmark manager with add, edit, archive, search, and filter features. Perfect for practicing forms and state management.",
-        categories: 'Web App',
-        Image: image2,
-        technologies: ["Reactjs","Node.js", "MongoDB", "Tailwindcss", "Google API"],
-        viewLink: "https://frontend-mentor-book-manager-app.vercel.app",
-        codeLink: "https://github.com/AbdulfataiOlarewaju/Frontend-Mentor-Book-Manager-App"
-    },
-    {
-        title: "FARMEASY",   
-        description: "Farmeasy is an innovative agricultural platform designed to empower farmers and promote sustainable farming practices in Nigeria.",
-        categories: 'Web Development',
-        Image: image3,
-        technologies: ["Html", "Css", "Javascript", "Python"],
-        viewLink: "https://ecoshop.example.comhttps://abdulfataiolarewaju.github.io/FARMEASY/about.html",
-        codeLink: "https://github.com/AbdulfataiOlarewaju/FARMEASY"
-    },
 ]
 
 export default ProjectData;

@@ -1,5 +1,9 @@
 import { Download, Eye } from "lucide-react";
 import resumePdf from "@/assets/data/Sakariyau_Abdulfatais_Resume.docx";
+import ProjectData from "@/assets/data/data";
+import { Badge } from "@/components/ui/badge";
+import { Card } from "@/components/ui/card";
+import { Github } from "lucide-react";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { motion, useInView, AnimatePresence } from "framer-motion";
@@ -105,11 +109,11 @@ function Home() {
             SAKARIYAU ABDULFATAI
           </motion.h1>
            <motion.h1 variants={itemVariants} className="text-2xl lg:text-[40px] font-bold mb-3">
-             {displayedText}
-             <motion.span 
+             {/* {displayedText} */}
+             {/* <motion.span 
                 animate={{ opacity: [1, 0] }}
                 transition={{ duration: 0.8, repeat: Infinity, repeatType: "reverse" }}
-                className="blinking-cursor">|</motion.span>
+                className="blinking-cursor">|</motion.span> */}
            </motion.h1>
            <motion.div variants={itemVariants} className="text-center lg:mx-48 mx-auto md:py-10 py-8 lg:px-20 px-2">
             <p className="text-center mb-15 text-neutral-700 dark:text-neutral-400">
@@ -152,6 +156,86 @@ function Home() {
            </motion.div>
           </motion.div>
         </div>
+
+        <section className="container mx-auto mt-24">
+          <motion.h2
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="md:text-[33px] text-[24px] font-bold mb-4 text-center"
+          >
+            Featured Projects
+          </motion.h2>
+          <motion.div
+            variants={itemVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="h-1 w-20 bg-gray-900 dark:bg-[#eeeeee] mx-auto rounded-full mb-10"
+          />
+
+          <motion.div
+            variants={containerVariants}
+            initial="hidden"
+            animate={isInView ? "visible" : "hidden"}
+            className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
+          >
+            {ProjectData.slice(0, 3).map((project) => (
+              <motion.div key={project.title} variants={itemVariants} whileHover={{ y: -8 }}>
+                <Card className="border-neutral-300 border bg-gray-200 dark:bg-[#131212] dark:border-neutral-700 shadow-none rounded-lg overflow-hidden h-full flex flex-col">
+                  <img
+                    src={project.Image}
+                    alt={project.title}
+                    className="w-full h-[210px] object-cover"
+                  />
+                  <div className="p-5 flex flex-col flex-1">
+                    <h3 className="text-xl font-semibold mb-2">{project.title}</h3>
+                    <p className="text-sm text-neutral-700 dark:text-neutral-400 mb-4 flex-1">
+                      {project.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2 mb-5">
+                      {project.technologies.slice(0, 3).map((technology) => (
+                        <Badge
+                          key={`${project.title}-${technology}`}
+                          className="dark:bg-black bg-neutral-200 border-neutral-300 text-black dark:text-white dark:border-neutral-700"
+                        >
+                          {technology}
+                        </Badge>
+                      ))}
+                    </div>
+                    <div className="flex gap-2">
+                      <a
+                        href={project.viewLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-black text-white dark:bg-gray-200 dark:text-black w-full py-2 px-3 rounded-md text-sm font-medium flex justify-center items-center gap-2 hover:opacity-85"
+                      >
+                        <Eye size={16} /> Live Demo
+                      </a>
+                      <a
+                        href={project.codeLink}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="bg-[#eeeeee] border border-gray-300 text-black dark:bg-black dark:text-white dark:border-neutral-700 w-full py-2 px-3 rounded-md text-sm font-medium flex justify-center items-center gap-2 hover:opacity-70"
+                      >
+                        <Github size={16} /> Code
+                      </a>
+                    </div>
+                  </div>
+                </Card>
+              </motion.div>
+            ))}
+          </motion.div>
+
+          <div className="mt-8 flex justify-center">
+            <button
+              type="button"
+              onClick={() => navigate('/projects')}
+              className="bg-[#eeeeee] border border-gray-300 text-black dark:bg-black dark:text-white dark:border-neutral-700 py-3 px-7 rounded-md font-medium text-sm hover:opacity-85"
+            >
+              View All Projects
+            </button>
+          </div>
+        </section>
 
       </div>
    );
