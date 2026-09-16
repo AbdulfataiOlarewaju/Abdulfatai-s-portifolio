@@ -113,8 +113,9 @@ function Skills() {
       emoji: "🎨",
       skills: [
         { label: "React", value: "95" },
-        { label: "Javascript", value: "90" },
+        { label: "JavaScript?TypeSript", value: "90" },
         { label: "Tailwind CSS", value: "95" },
+        { label: "Shadecn", value: "85" },
         { label: "Framer Motion", value: "85" }
       ]
     },
@@ -124,6 +125,7 @@ function Skills() {
       skills: [
         { label: "Node.js", value: "90" },
         { label: "Express", value: "80" },
+        { label: "PostgreSQL", value: "90" },
         { label: "MongoDB", value: "82" },
         { label: "Python", value: "40" }
       ]
