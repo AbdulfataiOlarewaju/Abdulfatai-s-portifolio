@@ -4,6 +4,8 @@ import image3 from './image.png';
 import image4 from './herapist website.png';
 import image5 from './Elegant-Store.png';
 import image6 from './Screenshot 2026-03-08 111153.png';
+import image7 from './Screenshot 2026-09-17 151646.png';
+
 
 import { Code, Globe, Palette, Phone, Rocket, Search, ShoppingCart, Smartphone, WholeWord } from 'lucide-react';
 
@@ -18,6 +20,26 @@ const ProjectData = [
         viewLink: "https://elegant-store-2.onrender.com/",
         codeLink: "https://github.com/AbdulfataiOlarewaju/Elegant-Store"
     },
+    {
+    title: "Finora",
+    description: "An AI-powered personal finance platform for tracking income and expenses, understanding spending patterns, scanning receipts, and receiving personalized financial insights.",
+    categories: "Web App",
+    Image: image7,
+    technologies: [
+        "React.js",
+        "TypeScript",
+        "Node.js",
+        "Express.js",
+        "MongoDB",
+        "Tailwind CSS",
+        "Redux Toolkit",
+        "Google Gemini",
+        "Cloudinary",
+        "Resend"
+    ],
+    viewLink: "https://finora-ai-powered-personal-finance.onrender.com/",
+    codeLink: "https://github.com/AbdulfataiOlarewaju/Finora-AI-powered-personal-finance"
+},,
      {
         title: "Thrive Africa",
         description: "A nonprofit organization website built to reach individuals in need of healthcare support. Features donation systems, volunteer sign-ups, and mission-driven content optimized for",

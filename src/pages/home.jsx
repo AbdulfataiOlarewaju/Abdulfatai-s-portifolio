@@ -179,7 +179,7 @@ function Home() {
             animate={isInView ? "visible" : "hidden"}
             className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left"
           >
-            {ProjectData.slice(0, 3).map((project) => (
+            {ProjectData.slice(0, 4).map((project) => (
               <motion.div key={project.title} variants={itemVariants} whileHover={{ y: -8 }}>
                 <Card className="border-neutral-300 border bg-gray-200 dark:bg-[#131212] dark:border-neutral-700 shadow-none rounded-lg overflow-hidden h-full flex flex-col">
                   <img
